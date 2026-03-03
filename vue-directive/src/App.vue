@@ -1,22 +1,32 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterLink, RouterView } from "vue-router";
+import HelloWorld from "./components/HelloWorld.vue";
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img
+      alt="Vue logo"
+      class="logo"
+      src="@/assets/logo.svg"
+      width="125"
+      height="125"
+    />
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
 
       <nav>
+        <!-- RouterLink: a태그를 기반으로 링크를 생성하는 태그 -->
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <RouterLink v-bind:to="{ path: '/bind' }">bind</RouterLink>
+        <RouterLink v-bind:to="{ name: 'directiveModel' }">model</RouterLink>
+        <RouterLink v-bind:to="{ name: 'directiveOn' }">on</RouterLink>
       </nav>
     </div>
   </header>
-
+  <!-- vue router를 기반으로 호출하는 컴포넌트 출력 -->
   <RouterView />
 </template>
 
