@@ -23,6 +23,9 @@ import HelloWorld from "./components/HelloWorld.vue";
         <RouterLink v-bind:to="{ path: '/bind' }">bind</RouterLink>
         <RouterLink v-bind:to="{ name: 'directiveModel' }">model</RouterLink>
         <RouterLink v-bind:to="{ name: 'directiveOn' }">on</RouterLink>
+        <RouterLink v-bind:to="{ name: 'directiveIf' }">if</RouterLink>
+        <RouterLink v-bind:to="{ name: 'directiveFor' }">for</RouterLink>
+        <RouterLink v-bind:to="{ name: 'todoDirective' }">todo</RouterLink>
       </nav>
     </div>
   </header>
