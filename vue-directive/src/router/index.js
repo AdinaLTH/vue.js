@@ -17,7 +17,13 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import("../views/AboutView.vue"), // 동적임포트: 실질적으로 필요할 때 당겨옴
+      // 동적 컴포넌트 호출: 메인페이지 제외
+      component: () => import("../views/AboutView.vue"),
+    },
+    {
+      path: "/bind",
+      name: "directiveBind",
+      component: () => import("../views/DirectiveBind.vue"),
     },
   ],
 });
