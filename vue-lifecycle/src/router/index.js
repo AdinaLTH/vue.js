@@ -18,6 +18,16 @@ const router = createRouter({
       name: "parentComponentApp",
       component: () => import("../views/ParentComponentApp.vue"),
     },
+    {
+      path: "/todo",
+      name: "todoList",
+      component: () => import("../views/TodoList.vue"),
+    },
+    {
+      path: "/slot",
+      name: "commonSlot",
+      component: () => import("../views/CommonSlot.vue"),
+    },
   ],
 });
 

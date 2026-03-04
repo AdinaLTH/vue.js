@@ -8,6 +8,8 @@ import { RouterLink, RouterView } from "vue-router";
     <RouterLink to="/watch">Watch</RouterLink> |
     <RouterLink to="/lifecycle">Lifecycle</RouterLink> |
     <RouterLink to="/parent">Parent</RouterLink> |
+    <RouterLink to="/todo">Todo</RouterLink> |
+    <RouterLink to="/slot">Slot</RouterLink> |
   </p>
   <RouterView />
 </template>

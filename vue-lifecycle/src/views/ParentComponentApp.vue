@@ -7,6 +7,12 @@ const postList = reactive([
   { name: "김상우", message: "Good Morning" },
   { name: "이한나", message: "Today is..." },
 ]);
+const startName = ref("");
+const starPoint = ref(0);
+const printInfo = (name, point) => {
+  startName.value = name;
+  starPoint.value = point;
+};
 </script>
 <template>
   <h1>멀티 컴포넌트</h1>
