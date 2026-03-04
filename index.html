@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const server = `https://jsonplaceholder.typicode.com/posts`;
+
+      // 전체조회
+      fetch(server)
+        .then((resp) => resp.json())
+        .then((json) => console.log(json));
+      // 단건조회
+      // const id = localStorage.setItem();
+      fetch(server + `/${id}`)
+        .then((resp) => resp.json())
+        .then((json) => console.log(json));
+      // 등록
+
+      // 수정
+
+      // 삭제
+    </script>
+  </body>
+</html>
