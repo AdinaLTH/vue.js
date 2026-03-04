@@ -5,12 +5,9 @@ import { RouterLink, RouterView } from "vue-router";
 <template>
   <h1>You did it!</h1>
   <p>
-    <RouterLink to="/watch">Watch</RouterLink>
-    |
-    <RouterLink to="/lifecycle">Lifecycle</RouterLink>
-    |
-    <RouterLink to="/lifecycle">Lifecycle</RouterLink>
-    |
+    <RouterLink to="/watch">Watch</RouterLink> |
+    <RouterLink to="/lifecycle">Lifecycle</RouterLink> |
+    <RouterLink to="/parent">Parent</RouterLink> |
   </p>
   <RouterView />
 </template>

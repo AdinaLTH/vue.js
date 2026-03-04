@@ -14,9 +14,9 @@ const router = createRouter({
       component: () => import("../views/LifecycleHook.vue"),
     },
     {
-      path: "/lifecycle",
-      name: "lifecycleHook",
-      component: () => import("../views/LifecycleHook.vue"),
+      path: "/parent",
+      name: "parentComponentApp",
+      component: () => import("../views/ParentComponentApp.vue"),
     },
   ],
 });
