@@ -7,7 +7,9 @@ import { RouterLink, RouterView } from "vue-router";
   <p>
     <RouterLink to="/watch">Watch</RouterLink>
     |
-    <RouterLink to="/hook">Hook</RouterLink>
+    <RouterLink to="/lifecycle">Lifecycle</RouterLink>
+    |
+    <RouterLink to="/lifecycle">Lifecycle</RouterLink>
     |
   </p>
   <RouterView />

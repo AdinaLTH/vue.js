@@ -9,7 +9,12 @@ const router = createRouter({
       component: () => import("../views/WatchTest.vue"),
     },
     {
-      path: "/hook",
+      path: "/lifecycle",
+      name: "lifecycleHook",
+      component: () => import("../views/LifecycleHook.vue"),
+    },
+    {
+      path: "/lifecycle",
       name: "lifecycleHook",
       component: () => import("../views/LifecycleHook.vue"),
     },

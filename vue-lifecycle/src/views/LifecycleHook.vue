@@ -1,5 +1,6 @@
 <!-- views/LifecycleHook.vue -->
 <script setup>
+import ChildLifecycleHook from "@/components/ChildLifecycleHook.vue";
 import {
   ref,
   computed,
@@ -47,6 +48,7 @@ onUnmounted(() => {
 });
 </script>
 <template>
-  <p>세로 {{ height }}, 가로 {{ width }} 인 사각형 면전 {{ area }}</p>
+  <p>세로 {{ height }}, 가로 {{ width }} 인 사각형 면적 {{ area }}</p>
   <button v-on:click="change">값변경</button>
+  <ChildLifecycleHook />
 </template>

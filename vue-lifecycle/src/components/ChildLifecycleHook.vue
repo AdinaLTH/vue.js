@@ -49,7 +49,7 @@ onUnmounted(() => {
 <template>
   <div>
     <h3>자식 컴포넌트</h3>
-    <p>세로 {{ height }}, 가로 {{ width }} 인 사각형 면전 {{ area }}</p>
+    <p>세로 {{ height }}, 가로 {{ width }} 인 사각형 면적 {{ area }}</p>
     <button v-on:click="change">값변경</button>
   </div>
 </template>
