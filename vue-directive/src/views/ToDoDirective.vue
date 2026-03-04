@@ -1,15 +1,15 @@
 <template>
   <div id="myDIV" class="header">
     <h2>My To Do List</h2>
-    <input type="text" id="myInput" placeholder="Title..." />
-    <span onclick="newElement()" class="addBtn">Add</span>
+    <input type="text" id="myInput" v-model="newTask" placeholder="Title..." />
+    <span v-on:click="newElement()" class="addBtn">Add</span>
   </div>
 
   <ul id="myUL">
     <li
       v-for="todo in todos"
       v-bind:class="{ checked: todo.complete }"
-      v-on:click="todoComplete(todo.no)"
+      v-on:click.self="todoComplete(todo.no)"
     >
       {{ todo.task }}
       <span class="close" v-on:click="delTodo(todo.no)">X</span>
@@ -41,6 +41,23 @@ const delTodo = (selectedNo) => {
   // 특정 조건을 만족하는 데이터의 인덱스 반환
   let delIdx = todos.findIndex((todo) => todo.no == selectedNo);
   todos.splice(delIdx, 1);
+};
+
+// input에 사용하는 변수
+const newTask = ref("");
+// <span>태그에 연결된 이벤트핸들러
+const newElement = () => {
+  // { no: 1, task: "Hit the gym", complete: false },
+  let lastTodo = todos[todos.length - 1];
+  let newNo = lastTodo.no + 1;
+  let newTodo = {
+    no: newNo,
+    task: newTask.value,
+    complete: false,
+  };
+  todos.push(newTodo);
+  // input 태그 초기화
+  newTask.value = "";
 };
 </script>
 <style>
