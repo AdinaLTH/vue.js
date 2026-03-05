@@ -13,16 +13,47 @@
       fetch(server)
         .then((resp) => resp.json())
         .then((json) => console.log(json));
+
       // 단건조회
-      // const id = localStorage.setItem();
-      fetch(server + `/${1}`)
+      const id = 1;
+      fetch(server + `/${id}`)
         .then((resp) => resp.json())
         .then((json) => console.log(json));
+
       // 등록
+      const newPost = {
+        title: "Adina",
+        body: "Adina",
+        userId: 1,
+      };
+
+      fetch(server, {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify(newPost),
+      })
+        .then((resp) => resp.json())
+        .then((json) => console.log(json));
 
       // 수정
+      fetch(server + `/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify(newPost),
+      })
+        .then((resp) => resp.json())
+        .then((json) => console.log("수정", json));
 
       // 삭제
+      fetch(server + `/${id}`, {
+        method: "DELETE",
+      })
+        .then((resp) => resp.json())
+        .then((json) => console.log("삭제", json));
     </script>
   </body>
 </html>
