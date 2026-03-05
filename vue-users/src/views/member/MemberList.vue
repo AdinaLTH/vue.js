@@ -9,6 +9,30 @@ const goToDetail = (memberId) => {
     // query: { keyword: "Hello" },
   });
 };
+
+import { useCounterStore } from "@/stores/counter";
+const counterStore = useCounterStore();
+
+import { ref, onBeforeMount } from "vue";
+// 전체 회원
+const members = ref([]);
+
+// const server = "https://jsonplaceholder.typicode.com";
+const fineMemberList = async () => {
+  let list = await fetch(`/fallback/users`)
+    .then((resp) => resp.json())
+    .catch((err) => console.log(err));
+
+  members.value = list;
+  counterStore.count = members.value.length;
+};
+
+// Lifecycle Hook은 마지막에 작성
+// onBeforeMount: Lifecycle Hook 중 가장 먼저 실행
+onBeforeMount(() => {
+  // 서버에 초기데이터 요청
+  fineMemberList();
+});
 </script>
 <template>
   <h1>회원 관리</h1>
@@ -19,7 +43,8 @@ const goToDetail = (memberId) => {
     클릭
   </p>
   <ul>
-    <li v-on:click="goToDetail(33456)">ID가 33456인 영희님</li>
-    <li v-on:click="goToDetail(47783)">ID가 47783인 철수님</li>
+    <li v-for="info in members" v-on:click="goToDetail(info.id)">
+      ID가 {{ info.id }}인 {{ info.name }}님
+    </li>
   </ul>
 </template>
