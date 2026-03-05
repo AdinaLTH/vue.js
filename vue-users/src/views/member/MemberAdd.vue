@@ -12,21 +12,13 @@ const member = reactive({
   email: "",
   phone: "",
 });
+import { useMemberStore } from "@/stores/member";
+const memberStore = useMemberStore();
 
 // const server = "https://jsonplaceholder.typicode.com";
 const addMember = async () => {
   // 1) 서버에 등록 요청
-  let info = await fetch(`/fallback/users`, {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-    },
-    body: JSON.stringify(member),
-  })
-    .then((resp) => resp.json())
-    .catch((err) => console.log(err));
-
-  let newId = info.id;
+  let newId = await memberStore.createMember(member);
   // 2) 페이지 전환: 상세페이지
   router.push({ name: "memberDetail", params: { id: newId } });
   // router.go(-1); // 뒤로가기

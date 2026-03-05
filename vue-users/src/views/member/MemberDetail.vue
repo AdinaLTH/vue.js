@@ -7,17 +7,13 @@ const memId = route.params.id;
 console.log(memId);
 
 import { ref, onBeforeMount } from "vue";
-// 회원 정보
-const member = ref({});
 
-// const server = "https://jsonplaceholder.typicode.com";
-const findMemberById = async (id) => {
-  let info = await fetch(`/fallback/users/${id}`)
-    .then((resp) => resp.json())
-    .catch((err) => console.log(err));
+import { useMemberStore } from "@/stores/member";
+import { storeToRefs } from "pinia";
+const memberStore = useMemberStore();
 
-  member.value = info;
-};
+const { member } = storeToRefs(memberStore);
+const { findMemberById } = memberStore;
 
 onBeforeMount(() => {
   findMemberById(memId);

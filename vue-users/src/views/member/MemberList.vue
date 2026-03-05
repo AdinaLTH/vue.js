@@ -9,29 +9,23 @@ const goToDetail = (memberId) => {
     // query: { keyword: "Hello" },
   });
 };
-
-import { useCounterStore } from "@/stores/counter";
 const counterStore = useCounterStore();
 
 import { ref, onBeforeMount } from "vue";
-// 전체 회원
-const members = ref([]);
 
-// const server = "https://jsonplaceholder.typicode.com";
-const fineMemberList = async () => {
-  let list = await fetch(`/fallback/users`)
-    .then((resp) => resp.json())
-    .catch((err) => console.log(err));
+import { useCounterStore } from "@/stores/counter";
+import { useMemberStore } from "@/stores/member";
+import { storeToRefs } from "pinia";
 
-  members.value = list;
-  counterStore.count = members.value.length;
-};
+const memberStore = useMemberStore();
+const { members } = storeToRefs(memberStore);
+const { findMemberList } = memberStore;
 
 // Lifecycle Hook은 마지막에 작성
 // onBeforeMount: Lifecycle Hook 중 가장 먼저 실행
 onBeforeMount(() => {
   // 서버에 초기데이터 요청
-  fineMemberList();
+  findMemberList();
 });
 </script>
 <template>
